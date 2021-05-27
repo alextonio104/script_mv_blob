@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#Primero se manda el stdout de solo las rutas de los archivos con el comando
+#cat salida_zmblobchk_start | grep -i "incorrect data size" | awk -F" " '{print $9}' | sed -e s/://g >> /ruta/archivo.txt 
+#/ruta/archivo.txt = /opt/blob1.txt
+BLOBR="/opt/blob_mvd_u_size_260521/"
+BLOBAR="/opt/blob1.txt"
+BLOBTXT=$(cat $BLOBAR)
+
+for IDSIZE in $BLOBTXT
+do
+mv $IDSIZE $BLOBR
+echo "Mensaje en la ruta $IDSIZE reubicado exitosamente en el folder $BLOBR"
+done
+
